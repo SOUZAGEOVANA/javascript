@@ -1,23 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <title>ferragens joão</title>
 </head>
+
 <body>
-   <label for="quantidade">quantidade</label>
-   <input type="text" id="quantidade">
-
+    <h2>Ferragens João</h2>
     <label for="produto">produto</label>
-<select  id="produto">
-    <option value="martelo">martelo</option>
-    <option value="furadeira">furadeira</option>
-    <option value="chapa de zinco">chapa de zinco</option>
-    <option value=" maçanetas"> maçanetas</option>
+    <select id="produto">
+     <option value="">--selecione um produto</option>
+     <option value="parafuso">parafuso</option>
+     <option value="martelo">martelo</option>
+     <option value="chave de fenda">chave de fenda</option>
+     <option value="serrote">serrote</option>
+    </select>
 
-</select>
+
+    <label for="quantidade">quantidade:</label>
+    <input type="number" id="quantidade" min="0" placeholder="digite a quantidade"><b><br> <!--quantidade de produto -->
+<label for="">ESTOQUE</label><h5></h5>
+    <button onclick="calcularPreco()">COMPRAR</button>  
+    <h4 id="resultado"></h4>
+    <script src="script.js"></script>
 </body>
 </html>
