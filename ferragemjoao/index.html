@@ -4,26 +4,43 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ferragens joão</title>
+    <title>Ferragens João</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <h2>Ferragens João</h2>
-    <label for="produto">produto</label>
-    <select id="produto">
-     <option value="">--selecione um produto</option>
-     <option value="parafuso">parafuso</option>
-     <option value="martelo">martelo</option>
-     <option value="chave de fenda">chave de fenda</option>
-     <option value="serrote">serrote</option>
-    </select>
+    <!-- Cabeçalho -->
+    <header>
+        <h2>Ferragens João</h2>
+    </header>
 
+    <!-- Formulário de Compra -->
+    <main>
+        <section class="form-section">
+            <label for="produto">Produto:</label>
+            <select id="produto">
+                <option value="">Selecione um produto</option>
+                <option value="parafuso">Parafuso</option>
+                <option value="martelo">Martelo</option>
+                <option value="chave de fenda">Chave de Fenda</option>
+                <option value="serrote">Serrote</option>
+            </select>
 
-    <label for="quantidade">quantidade:</label>
-    <input type="number" id="quantidade" min="0" placeholder="digite a quantidade"><b><br> <!--quantidade de produto -->
-<label for="">ESTOQUE</label><h5></h5>
-    <button onclick="calcularPreco()">COMPRAR</button>  
-    <h4 id="resultado"></h4>
+            <label for="quantidade">Quantidade:</label>
+            <input 
+                type="number" 
+                id="quantidade" 
+                min="0" 
+                placeholder="Digite a quantidade" 
+            >
+        </section>
+
+        <!-- Estoque e Resultado -->
+        <section class="result-section">
+            <button id="comprar">Comprar</button>
+            <h4 id="resultado"></h4>
+        </section>
+    </main>
+
     <script src="script.js"></script>
 </body>
 </html>

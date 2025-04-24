@@ -1,0 +1,112 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Corpo da página */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Cabeçalho */
+header {
+    background-color: #007bff;
+    color: white;
+    width: 100%;
+    padding: 15px 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header h2 {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+/* Seção do formulário */
+main {
+    width: 100%;
+    max-width: 600px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-top: 15px;
+    font-size: 1rem;
+    color: #555;
+}
+
+select, input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+select:focus, input[type="number"]:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Botão */
+button#comprar {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #28a745;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button#comprar:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
+/* Resultado */
+h4#resultado {
+    margin-top: 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    color: #555;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    main {
+        padding: 15px;
+    }
+
+    header h2 {
+        font-size: 1.5rem;
+    }
+
+    label, select, input[type="number"], button#comprar {
+        font-size: 0.9rem;
+    }
+}

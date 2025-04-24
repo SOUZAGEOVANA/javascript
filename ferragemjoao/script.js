@@ -1,42 +1,47 @@
-//MARTELO, PREGO, ALICATE, PARAFUSO
-//19,90     10,00    23,00   a = 10
-
-const precos={ //dicionario
-    "parafuso":19.90,
-    "martelo":23.70,
-    "chave de fenda": 10.99,
-    "serrote":30.00,
+// Dados do estoque inicial
+const estoque = {
+    parafuso: 100,
+    martelo: 50,
+    "chave de fenda": 75,
+    serrote: 30,
 };
 
-const estoque={
-    "parafuso": 100,
-    "martelo":4,
-    "chave de fenda": 6,
-    "serrote":1000,
-};
+// Elementos do DOM
+const produtoSelect = document.getElementById("produto");
+const quantidadeInput = document.getElementById("quantidade");
+const comprarButton = document.getElementById("comprar");
+const resultadoElement = document.getElementById("resultado");
 
-//ACESSAR GUARDAR A QUANTIDAde
-//calcular o preço total 
-function calcularPreco(){
+// Função para realizar a compra
+function realizarCompra() {
+    const produtoSelecionado = produtoSelect.value;
+    const quantidadeDesejada = parseInt(quantidadeInput.value, 10);
 
-    let qtd = document.getElementById("quantidade").value;// pega aquantidade atual digitada 
-    let escolha = document.getElementById("produto").value;//pega o nome do produto selecionado 
-    let valortotal = qtd * precos[escolha] // calcular o valor total multiplicando o preço do produto pela quantidade
-    //DECISAO
-    //pra ve o que tem no estoque 
-    if(estoque[escolha] - qtd >= 0){
-        document.getElementById("resultado").innerHTML = valortotal.toFixed(2); //exibir o resultado 
-        estoque[escolha] -= qtd; // calculo do estoque pra quando for tirando
-        window.alert("compra realizada com sucesso "  + "valor total: " + valortotal.toFixed(2))
-         
-    // aparece a mensagem na tela se não tive mais nada no estoque 
-    }else{
-        window.alert("ESTOQUE INDISPONIVEL")
+    // Validações
+    if (!produtoSelecionado) {
+        resultadoElement.textContent = "Por favor, selecione um produto.";
+        resultadoElement.style.color = "red";
+        return;
     }
-    console.log(estoque[escolha]) 
-  
-    
 
+    if (isNaN(quantidadeDesejada) || quantidadeDesejada <= 0) {
+        resultadoElement.textContent = "Por favor, insira uma quantidade válida.";
+        resultadoElement.style.color = "red";
+        return;
+    }
 
-    
+    // Verifica o estoque
+    if (quantidadeDesejada > estoque[produtoSelecionado]) {
+        resultadoElement.textContent = `Estoque insuficiente! Temos apenas ${estoque[produtoSelecionado]} unidades de ${produtoSelecionado}.`;
+        resultadoElement.style.color = "red";
+        return;
+    }
+
+    // Atualiza o estoque e exibe o sucesso
+    estoque[produtoSelecionado] -= quantidadeDesejada;
+    resultadoElement.textContent = `Compra realizada com sucesso! Restam ${estoque[produtoSelecionado]} unidades de ${produtoSelecionado}.`;
+    resultadoElement.style.color = "green";
 }
+
+// Adiciona o evento ao botão
+comprarButton.addEventListener("click", realizarCompra);
